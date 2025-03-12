@@ -15,9 +15,9 @@ app.use(express.json());
 //use route
 app.use(productsRouter);
 
-
+const port =process.env.PORT || 3000;
 
 //listen for incoming request
 app.listen(3000, () => {
-    console.log('server is listening on port 3000')
+    console.log(`Server listening on port ${port}`);
 })

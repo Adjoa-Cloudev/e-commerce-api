@@ -1,11 +1,15 @@
 import { Router } from "express";
 import { addProducts, countProducts, deleteProduct, getProducts, updateProduct } from "../controllers/products.js";
+import { localUpload, remoteUpload } from "../middlewares/upload.js";
 
 //create products router
 const productsRouter = Router();
 
 //Define routes
-productsRouter.post('/products', addProducts);
+productsRouter.post('/products', remoteUpload.single('image'), addProducts);
+
+
+
 
 productsRouter.get('/products' , getProducts);
 
