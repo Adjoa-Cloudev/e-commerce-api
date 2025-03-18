@@ -6,7 +6,13 @@ import { localUpload, remoteUpload } from "../middlewares/upload.js";
 const productsRouter = Router();
 
 //Define routes
-productsRouter.post('/products', remoteUpload.single('image'), addProducts);
+// productsRouter.post(
+//     "/products",
+//     productImageUpload.single("image"),
+//     productPicturesUpload.array("pictures", 3),
+//     addProduct
+//   );
+  
 
 
 

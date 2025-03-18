@@ -9,3 +9,4 @@ export const remoteUpload = multer({
         relativePath: '/ecommerce-api/*'
     })
 })
+

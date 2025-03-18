@@ -23,11 +23,14 @@ export const addProducts = async (req, res, next) => {
     }
 }
 
-export const getProducts = async (req, res) => {
+export const getProducts = async (req, res, next) => {
     try {
-        const result = await ProductModel.find();
+        console.log(req.file, req.files);
+        const { filter = "{}", sort = "{}" } = req.query
+        const result = await ProductModel
+            .find(JSON.parse(filter))
+            .sort(JSON.parse(sort));
         res.json(result);
-        res.send('All products!');
     } catch (error) {
         next(error);
 
